@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Geometric Assessment of Amputated Limbs — Data Collection Tool</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="site-title">Digital Geometric Assessment of Amputated Limbs</h1>
+      <p class="site-subtitle">Data Collection Tool</p>
+    </div>
+  </header>
+
+  <main class="main-content">
+
+    <!-- Progress bar -->
+    <div class="progress-container" id="progressContainer" hidden>
+      <div class="progress-bar-track">
+        <div class="progress-bar-fill" id="progressFill"></div>
+      </div>
+      <span class="progress-label" id="progressLabel"></span>
+    </div>
+
+    <!-- Form sections are injected here by form.js -->
+    <div id="formContainer"></div>
+
+    <!-- Review screen -->
+    <div id="reviewContainer" class="card review-card" hidden>
+      <h2 class="section-title">Review Your Responses</h2>
+      <p class="review-instructions">Please verify all entries before downloading. Use the Back button to correct anything.</p>
+      <div id="reviewTable"></div>
+      <div class="nav-row">
+        <button class="btn btn-secondary" id="reviewBackBtn">Back</button>
+        <button class="btn btn-primary btn-export" id="exportBtn">Download CSV</button>
+      </div>
+    </div>
+
+    <!-- Thank-you screen -->
+    <div id="thankYouContainer" class="card thank-you-card" hidden>
+      <div class="checkmark">&#10003;</div>
+      <h2>Data Exported Successfully</h2>
+      <p>Your CSV file has been downloaded. You may now close this tab or start a new entry.</p>
+      <button class="btn btn-secondary" id="startOverBtn">Start New Entry</button>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>For research use only &mdash; all data remains on your device and is not transmitted.</p>
+  </footer>
+
+  <!-- Load config first, then engine, then app -->
+  <script src="js/questions.js"></script>
+  <script src="js/form.js"></script>
+  <script src="js/export.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
