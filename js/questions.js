@@ -282,7 +282,8 @@ const FORM_CONFIG = {
           type: "computed",
           formula: "(Liner_Thickness_t1 + Liner_Thickness_t2) / 2",
           decimals: 1,
-          unit: "mm"
+          unit: "mm",
+          fullWidth: true
         },
         {
           id: "hours_per_day",
@@ -432,6 +433,14 @@ const FORM_CONFIG = {
           unit: "cm",
           placeholder: "0.0"
         },
+        {
+          id: "marker_dist_from_pt",
+          label: "Registration Marker Distance from Patellar Tendon",
+          type: "number",
+          min: 0,
+          unit: "cm",
+          placeholder: "0.0"
+        },
 
         // ── Part A — Physical Reference Measurements ──────────
         {
@@ -480,7 +489,8 @@ const FORM_CONFIG = {
           formula: "(pt_to_distal_length_t1 + pt_to_distal_length_t2) / 2",
           decimals: 1,
           unit: "mm",
-          unitGroup: "circumference"
+          unitGroup: "circumference",
+          fullWidth: true
         },
 
         // ── Circumference stations — With Liner ───────────────
@@ -514,7 +524,8 @@ const FORM_CONFIG = {
           formula: "(circ_3above_liner_t1 + circ_3above_liner_t2) / 2",
           decimals: 1,
           unit: "mm",
-          unitGroup: "circumference"
+          unitGroup: "circumference",
+          fullWidth: true
         },
         {
           id: "circ_pt_liner_t1",
@@ -541,7 +552,8 @@ const FORM_CONFIG = {
           formula: "(circ_pt_liner_t1 + circ_pt_liner_t2) / 2",
           decimals: 1,
           unit: "mm",
-          unitGroup: "circumference"
+          unitGroup: "circumference",
+          fullWidth: true
         },
         {
           id: "circ_1in_liner_t1",
@@ -568,7 +580,8 @@ const FORM_CONFIG = {
           formula: "(circ_1in_liner_t1 + circ_1in_liner_t2) / 2",
           decimals: 1,
           unit: "mm",
-          unitGroup: "circumference"
+          unitGroup: "circumference",
+          fullWidth: true
         },
         {
           id: "circ_2in_liner_t1",
@@ -595,7 +608,8 @@ const FORM_CONFIG = {
           formula: "(circ_2in_liner_t1 + circ_2in_liner_t2) / 2",
           decimals: 1,
           unit: "mm",
-          unitGroup: "circumference"
+          unitGroup: "circumference",
+          fullWidth: true
         },
         {
           id: "circ_3in_liner_t1",
@@ -622,7 +636,8 @@ const FORM_CONFIG = {
           formula: "(circ_3in_liner_t1 + circ_3in_liner_t2) / 2",
           decimals: 1,
           unit: "mm",
-          unitGroup: "circumference"
+          unitGroup: "circumference",
+          fullWidth: true
         },
         {
           id: "circ_4in_liner_t1",
@@ -649,7 +664,8 @@ const FORM_CONFIG = {
           formula: "(circ_4in_liner_t1 + circ_4in_liner_t2) / 2",
           decimals: 1,
           unit: "mm",
-          unitGroup: "circumference"
+          unitGroup: "circumference",
+          fullWidth: true
         },
         {
           id: "circ_5in_liner_t1",
@@ -676,7 +692,8 @@ const FORM_CONFIG = {
           formula: "(circ_5in_liner_t1 + circ_5in_liner_t2) / 2",
           decimals: 1,
           unit: "mm",
-          unitGroup: "circumference"
+          unitGroup: "circumference",
+          fullWidth: true
         },
         {
           id: "circ_6in_liner_t1",
@@ -703,7 +720,8 @@ const FORM_CONFIG = {
           formula: "(circ_6in_liner_t1 + circ_6in_liner_t2) / 2",
           decimals: 1,
           unit: "mm",
-          unitGroup: "circumference"
+          unitGroup: "circumference",
+          fullWidth: true
         },
         {
           id: "circ_7in_liner_t1",
@@ -730,7 +748,8 @@ const FORM_CONFIG = {
           formula: "(circ_7in_liner_t1 + circ_7in_liner_t2) / 2",
           decimals: 1,
           unit: "mm",
-          unitGroup: "circumference"
+          unitGroup: "circumference",
+          fullWidth: true
         },
         {
           id: "circ_8in_liner_t1",
@@ -757,7 +776,8 @@ const FORM_CONFIG = {
           formula: "(circ_8in_liner_t1 + circ_8in_liner_t2) / 2",
           decimals: 1,
           unit: "mm",
-          unitGroup: "circumference"
+          unitGroup: "circumference",
+          fullWidth: true
         },
         {
           id: "circ_9in_liner_t1",
@@ -784,7 +804,8 @@ const FORM_CONFIG = {
           formula: "(circ_9in_liner_t1 + circ_9in_liner_t2) / 2",
           decimals: 1,
           unit: "mm",
-          unitGroup: "circumference"
+          unitGroup: "circumference",
+          fullWidth: true
         },
         {
           id: "circ_10in_liner_t1",
@@ -811,7 +832,8 @@ const FORM_CONFIG = {
           formula: "(circ_10in_liner_t1 + circ_10in_liner_t2) / 2",
           decimals: 1,
           unit: "mm",
-          unitGroup: "circumference"
+          unitGroup: "circumference",
+          fullWidth: true
         },
         {
           id: "circ_11in_liner_t1",
@@ -838,7 +860,8 @@ const FORM_CONFIG = {
           formula: "(circ_11in_liner_t1 + circ_11in_liner_t2) / 2",
           decimals: 1,
           unit: "mm",
-          unitGroup: "circumference"
+          unitGroup: "circumference",
+          fullWidth: true
         },
         {
           id: "circ_12in_liner_t1",
@@ -865,7 +888,8 @@ const FORM_CONFIG = {
           formula: "(circ_12in_liner_t1 + circ_12in_liner_t2) / 2",
           decimals: 1,
           unit: "mm",
-          unitGroup: "circumference"
+          unitGroup: "circumference",
+          fullWidth: true
         },
 
         // ── Scan 1 ────────────────────────────────────────────
@@ -924,7 +948,8 @@ const FORM_CONFIG = {
           formula: "(circ_3above_bare_t1 + circ_3above_bare_t2) / 2",
           decimals: 1,
           unit: "mm",
-          unitGroup: "circumference"
+          unitGroup: "circumference",
+          fullWidth: true
         },
         {
           id: "circ_pt_bare_t1",
@@ -951,7 +976,8 @@ const FORM_CONFIG = {
           formula: "(circ_pt_bare_t1 + circ_pt_bare_t2) / 2",
           decimals: 1,
           unit: "mm",
-          unitGroup: "circumference"
+          unitGroup: "circumference",
+          fullWidth: true
         },
         {
           id: "circ_1in_bare_t1",
@@ -978,7 +1004,8 @@ const FORM_CONFIG = {
           formula: "(circ_1in_bare_t1 + circ_1in_bare_t2) / 2",
           decimals: 1,
           unit: "mm",
-          unitGroup: "circumference"
+          unitGroup: "circumference",
+          fullWidth: true
         },
         {
           id: "circ_2in_bare_t1",
@@ -1005,7 +1032,8 @@ const FORM_CONFIG = {
           formula: "(circ_2in_bare_t1 + circ_2in_bare_t2) / 2",
           decimals: 1,
           unit: "mm",
-          unitGroup: "circumference"
+          unitGroup: "circumference",
+          fullWidth: true
         },
         {
           id: "circ_3in_bare_t1",
@@ -1032,7 +1060,8 @@ const FORM_CONFIG = {
           formula: "(circ_3in_bare_t1 + circ_3in_bare_t2) / 2",
           decimals: 1,
           unit: "mm",
-          unitGroup: "circumference"
+          unitGroup: "circumference",
+          fullWidth: true
         },
         {
           id: "circ_4in_bare_t1",
@@ -1059,7 +1088,8 @@ const FORM_CONFIG = {
           formula: "(circ_4in_bare_t1 + circ_4in_bare_t2) / 2",
           decimals: 1,
           unit: "mm",
-          unitGroup: "circumference"
+          unitGroup: "circumference",
+          fullWidth: true
         },
         {
           id: "circ_5in_bare_t1",
@@ -1086,7 +1116,8 @@ const FORM_CONFIG = {
           formula: "(circ_5in_bare_t1 + circ_5in_bare_t2) / 2",
           decimals: 1,
           unit: "mm",
-          unitGroup: "circumference"
+          unitGroup: "circumference",
+          fullWidth: true
         },
         {
           id: "circ_6in_bare_t1",
@@ -1113,7 +1144,8 @@ const FORM_CONFIG = {
           formula: "(circ_6in_bare_t1 + circ_6in_bare_t2) / 2",
           decimals: 1,
           unit: "mm",
-          unitGroup: "circumference"
+          unitGroup: "circumference",
+          fullWidth: true
         },
         {
           id: "circ_7in_bare_t1",
@@ -1140,7 +1172,8 @@ const FORM_CONFIG = {
           formula: "(circ_7in_bare_t1 + circ_7in_bare_t2) / 2",
           decimals: 1,
           unit: "mm",
-          unitGroup: "circumference"
+          unitGroup: "circumference",
+          fullWidth: true
         },
         {
           id: "circ_8in_bare_t1",
@@ -1167,7 +1200,8 @@ const FORM_CONFIG = {
           formula: "(circ_8in_bare_t1 + circ_8in_bare_t2) / 2",
           decimals: 1,
           unit: "mm",
-          unitGroup: "circumference"
+          unitGroup: "circumference",
+          fullWidth: true
         },
         {
           id: "circ_9in_bare_t1",
@@ -1194,7 +1228,8 @@ const FORM_CONFIG = {
           formula: "(circ_9in_bare_t1 + circ_9in_bare_t2) / 2",
           decimals: 1,
           unit: "mm",
-          unitGroup: "circumference"
+          unitGroup: "circumference",
+          fullWidth: true
         },
         {
           id: "circ_10in_bare_t1",
@@ -1221,7 +1256,8 @@ const FORM_CONFIG = {
           formula: "(circ_10in_bare_t1 + circ_10in_bare_t2) / 2",
           decimals: 1,
           unit: "mm",
-          unitGroup: "circumference"
+          unitGroup: "circumference",
+          fullWidth: true
         },
         {
           id: "circ_11in_bare_t1",
@@ -1248,7 +1284,8 @@ const FORM_CONFIG = {
           formula: "(circ_11in_bare_t1 + circ_11in_bare_t2) / 2",
           decimals: 1,
           unit: "mm",
-          unitGroup: "circumference"
+          unitGroup: "circumference",
+          fullWidth: true
         },
         {
           id: "circ_12in_bare_t1",
@@ -1275,7 +1312,8 @@ const FORM_CONFIG = {
           formula: "(circ_12in_bare_t1 + circ_12in_bare_t2) / 2",
           decimals: 1,
           unit: "mm",
-          unitGroup: "circumference"
+          unitGroup: "circumference",
+          fullWidth: true
         },
 
         // ── Scan 2 ────────────────────────────────────────────
@@ -1339,6 +1377,32 @@ const FORM_CONFIG = {
           fullWidth: true,
           options: ["Confirmed — exported as [ID]_Scan5_LimbLinerMarker"]
         },
+
+        // ── Marker position verification ──────────────────────
+        {
+          id: "info_marker_verify",
+          type: "info",
+          title: "Marker Position Verification",
+          content: "Before removing materials, re-measure the registration marker distance from the patellar tendon to confirm the marker did not shift during the session."
+        },
+        {
+          id: "marker_dist_from_pt_verify",
+          label: "Registration Marker Distance from PT — Verification",
+          type: "number",
+          min: 0,
+          unit: "cm",
+          placeholder: "0.0"
+        },
+        {
+          id: "marker_drift",
+          label: "Marker Drift (Initial − Verification)",
+          type: "computed",
+          formula: "marker_dist_from_pt - marker_dist_from_pt_verify",
+          decimals: 2,
+          unit: "cm",
+          fullWidth: true
+        },
+
         {
           id: "confirm_materials_removed",
           label: "All scanning materials and registration targets removed",
