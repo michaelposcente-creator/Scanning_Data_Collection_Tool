@@ -218,6 +218,7 @@ const FORM_CONFIG = {
           id: "liner_type",
           label: "Liner Type",
           type: "select",
+          fullWidth: true,
           otherOption: true,
           options: [
             "Össur Iceross Dermo",

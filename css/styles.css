@@ -655,12 +655,7 @@ textarea {
   }
 
   .fields-grid {
-    grid-template-columns: 1fr;
     gap: 1.1rem;
-  }
-
-  .field-group.full-width {
-    grid-column: 1;
   }
 
   /* --- Header --- */
