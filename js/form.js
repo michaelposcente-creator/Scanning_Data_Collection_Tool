@@ -487,11 +487,32 @@ const FormEngine = (() => {
         } else {
           span.textContent = "—";
           _formData[field.id] = "";
-          // Only mark stale if a formula is defined (blank formula = intentionally empty)
           display.classList.toggle("computed-stale", !!display.dataset.formula);
         }
       });
     });
+
+    _updateStationVisibility();
+  }
+
+  /* ── Circumference station visibility ────────────────── */
+
+  function _updateStationVisibility() {
+    const avgLength = parseFloat(_formData["pt_to_distal_length_avg"]) || 0;
+    const unit      = _formData["circ_unit"] || "mm";
+    const lengthIn  = unit === "in" ? avgLength : avgLength / 25.4;
+    // If no length entered yet, show all stations
+    const maxStation = avgLength > 0 ? Math.floor(lengthIn) : 12;
+
+    for (let i = 1; i <= 12; i++) {
+      const hide = i > maxStation;
+      ["liner", "bare"].forEach(cond => {
+        ["t1", "t2", "avg"].forEach(sfx => {
+          const el = document.querySelector(`[data-field-id="circ_${i}in_${cond}_${sfx}"]`);
+          if (el) el.hidden = hide;
+        });
+      });
+    }
   }
 
   /**
