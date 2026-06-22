@@ -422,36 +422,31 @@ const FORM_CONFIG = {
           id: "info_ref_measurements",
           type: "info",
           title: "Physical Reference Measurements (Part A)",
-          content: "Record total limb length and marker distance first.\n\nCircumference is measured at the patellar tendon, then at each inch distally. Leave stations beyond the distal end of the limb blank.",
+          content: "Select your unit, then record the patellar tendon to distal end length and circumference at each inch distally. Leave stations beyond the distal end of the limb blank.",
           image: "images/protocol_ref_measurements.png",
           imageCaption: "Circumference measurement stations — patellar tendon and every 1\" distally"
         },
-        {
-          id: "residual_limb_length",
-          label: "Total Residual Limb Length",
-          type: "number",
-          min: 0,
-          unit: "mm",
-          placeholder: "0.0"
-        },
-        {
-          id: "dist_distal_to_marker",
-          label: "Distal End to Proximal Edge of Marker",
-          type: "number",
-          min: 0,
-          unit: "mm",
-          placeholder: "0.0"
-        },
 
-        // ── Circumference unit toggle ─────────────────────────
+        // ── Measurement unit toggle ───────────────────────────
         {
           id: "circ_unit",
-          label: "Circumference Measurement Unit",
+          label: "Measurement Unit",
           type: "radio",
           options: ["mm", "in"],
           defaultValue: "mm",
           controlsUnitGroup: "circumference",
           fullWidth: true
+        },
+
+        // ── Length ───────────────────────────────────────────
+        {
+          id: "pt_to_distal_length",
+          label: "Patellar Tendon to Distal End Length",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
         },
 
         // ── Circumference stations ────────────────────────────
