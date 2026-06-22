@@ -19,6 +19,11 @@ const FormEngine = (() => {
     _currentIndex = 0;
     _sectionEls = [];
 
+    // Pre-populate defaults so computed fields and unit controllers have initial values
+    _sections.forEach(s => s.fields.forEach(f => {
+      if (f.defaultValue !== undefined) _formData[f.id] = f.defaultValue;
+    }));
+
     const container = document.getElementById("formContainer");
     container.innerHTML = "";
 
@@ -78,6 +83,7 @@ const FormEngine = (() => {
     const group = document.createElement("div");
     group.className = "field-group" + (field.fullWidth ? " full-width" : "");
     group.dataset.fieldId = field.id;
+    if (field.unitGroup) group.dataset.unitGroup = field.unitGroup;
 
     // Label row — label text + optional image toggle button
     const labelRow = document.createElement("div");
@@ -123,6 +129,15 @@ const FormEngine = (() => {
     } else if (field.type === "radio") {
       const radioGroup = _buildRadioGroup(field);
       group.appendChild(radioGroup);
+      if (field.controlsUnitGroup) {
+        radioGroup.addEventListener("change", () => {
+          const checked = radioGroup.querySelector("input:checked");
+          if (!checked) return;
+          document.querySelectorAll(`[data-unit-group="${field.controlsUnitGroup}"] .unit-label`)
+            .forEach(span => { span.textContent = checked.value; });
+          _saveValue(field);
+        });
+      }
       if (field.otherOption) {
         const specify = _buildOtherSpecify(field);
         group.appendChild(specify);
@@ -244,6 +259,7 @@ const FormEngine = (() => {
       input.type = "radio";
       input.name = field.id;
       input.value = opt;
+      if (field.defaultValue !== undefined && opt === field.defaultValue) input.checked = true;
       input.addEventListener("change", () => _saveValue(field));
       lbl.appendChild(input);
       lbl.appendChild(document.createTextNode(opt));

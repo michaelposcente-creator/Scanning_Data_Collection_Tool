@@ -422,9 +422,9 @@ const FORM_CONFIG = {
           id: "info_ref_measurements",
           type: "info",
           title: "Physical Reference Measurements (Part A)",
-          content: "Measure total residual limb length first. The 50% and 30% measurement sites will be calculated automatically — place the tape measure at those distances from the distal end. Each circumference is recorded twice; averages are calculated automatically.",
+          content: "Record total limb length and marker distance first.\n\nCircumference is measured at the patellar tendon, then at each inch distally. Leave stations beyond the distal end of the limb blank.",
           image: "images/protocol_ref_measurements.png",
-          imageCaption: "Circumference measurement locations — 30% and 50% of residual limb length measured from the distal end"
+          imageCaption: "Circumference measurement stations — patellar tendon and every 1\" distally"
         },
         {
           id: "residual_limb_length",
@@ -435,22 +435,6 @@ const FORM_CONFIG = {
           placeholder: "0.0"
         },
         {
-          id: "location_50pct",
-          label: "50% Measurement Site — Distance from Distal End",
-          type: "computed",
-          formula: "residual_limb_length * 0.5",
-          decimals: 1,
-          unit: "mm"
-        },
-        {
-          id: "location_30pct",
-          label: "30% Measurement Site — Distance from Distal End",
-          type: "computed",
-          formula: "residual_limb_length * 0.3",
-          decimals: 1,
-          unit: "mm"
-        },
-        {
           id: "dist_distal_to_marker",
           label: "Distal End to Proximal Edge of Marker",
           type: "number",
@@ -458,53 +442,135 @@ const FORM_CONFIG = {
           unit: "mm",
           placeholder: "0.0"
         },
+
+        // ── Circumference unit toggle ─────────────────────────
         {
-          id: "circ_50pct_t1",
-          label: "Circumference at 50% Limb Length — Trial 1",
+          id: "circ_unit",
+          label: "Circumference Measurement Unit",
+          type: "radio",
+          options: ["mm", "in"],
+          defaultValue: "mm",
+          controlsUnitGroup: "circumference",
+          fullWidth: true
+        },
+
+        // ── Circumference stations ────────────────────────────
+        {
+          id: "circ_pt",
+          label: "Circumference — Patellar Tendon",
           type: "number",
           min: 0,
           unit: "mm",
+          unitGroup: "circumference",
           placeholder: "0.0"
         },
         {
-          id: "circ_50pct_t2",
-          label: "Circumference at 50% Limb Length — Trial 2",
+          id: "circ_1in",
+          label: "Circumference — 1\" Distal to PT",
           type: "number",
           min: 0,
           unit: "mm",
+          unitGroup: "circumference",
           placeholder: "0.0"
         },
         {
-          id: "circ_50pct_avg",
-          label: "Circumference at 50% — Average",
-          type: "computed",
-          formula: "(circ_50pct_t1 + circ_50pct_t2) / 2",
-          decimals: 1,
-          unit: "mm"
-        },
-        {
-          id: "circ_30pct_t1",
-          label: "Circumference at 30% Limb Length — Trial 1",
+          id: "circ_2in",
+          label: "Circumference — 2\" Distal to PT",
           type: "number",
           min: 0,
           unit: "mm",
+          unitGroup: "circumference",
           placeholder: "0.0"
         },
         {
-          id: "circ_30pct_t2",
-          label: "Circumference at 30% Limb Length — Trial 2",
+          id: "circ_3in",
+          label: "Circumference — 3\" Distal to PT",
           type: "number",
           min: 0,
           unit: "mm",
+          unitGroup: "circumference",
           placeholder: "0.0"
         },
         {
-          id: "circ_30pct_avg",
-          label: "Circumference at 30% — Average",
-          type: "computed",
-          formula: "(circ_30pct_t1 + circ_30pct_t2) / 2",
-          decimals: 1,
-          unit: "mm"
+          id: "circ_4in",
+          label: "Circumference — 4\" Distal to PT",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_5in",
+          label: "Circumference — 5\" Distal to PT",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_6in",
+          label: "Circumference — 6\" Distal to PT",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_7in",
+          label: "Circumference — 7\" Distal to PT",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_8in",
+          label: "Circumference — 8\" Distal to PT",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_9in",
+          label: "Circumference — 9\" Distal to PT",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_10in",
+          label: "Circumference — 10\" Distal to PT",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_11in",
+          label: "Circumference — 11\" Distal to PT",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_12in",
+          label: "Circumference — 12\" Distal to PT",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
         },
 
         // ── Scan 1 ────────────────────────────────────────────
