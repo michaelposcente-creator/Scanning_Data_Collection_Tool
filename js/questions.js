@@ -261,12 +261,28 @@ const FORM_CONFIG = {
           ]
         },
         {
-          id: "Liner_Thickness",
-          label: "Liner Thickness",
+          id: "Liner_Thickness_t1",
+          label: "Liner Thickness — Trial 1",
           type: "number",
           min: 0,
           unit: "mm",
           placeholder: "0"
+        },
+        {
+          id: "Liner_Thickness_t2",
+          label: "Liner Thickness — Trial 2",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          placeholder: "0"
+        },
+        {
+          id: "Liner_Thickness_avg",
+          label: "Liner Thickness — Average",
+          type: "computed",
+          formula: "(Liner_Thickness_t1 + Liner_Thickness_t2) / 2",
+          decimals: 1,
+          unit: "mm"
         },
         {
           id: "hours_per_day",
@@ -438,21 +454,44 @@ const FORM_CONFIG = {
           fullWidth: true
         },
 
-        // ── Length ───────────────────────────────────────────
+        // ── PT to Distal Length ───────────────────────────────
         {
-          id: "pt_to_distal_length",
-          label: "Patellar Tendon to Distal End Length",
+          id: "pt_to_distal_length_t1",
+          label: "PT to Distal End Length — Trial 1",
           type: "number",
           min: 0,
           unit: "mm",
           unitGroup: "circumference",
           placeholder: "0.0"
+        },
+        {
+          id: "pt_to_distal_length_t2",
+          label: "PT to Distal End Length — Trial 2",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "pt_to_distal_length_avg",
+          label: "PT to Distal End Length — Average",
+          type: "computed",
+          formula: "(pt_to_distal_length_t1 + pt_to_distal_length_t2) / 2",
+          decimals: 1,
+          unit: "mm",
+          unitGroup: "circumference"
         },
 
-        // ── Circumference stations ────────────────────────────
+        // ── Circumference stations — With Liner ───────────────
         {
-          id: "circ_3in_above_pt",
-          label: "Circumference — 3\" Proximal to PT",
+          id: "info_circ_liner",
+          type: "info",
+          title: "Circumference Measurements — With Liner"
+        },
+        {
+          id: "circ_3above_liner_t1",
+          label: "3\" Proximal to PT — Trial 1",
           type: "number",
           min: 0,
           unit: "mm",
@@ -460,8 +499,8 @@ const FORM_CONFIG = {
           placeholder: "0.0"
         },
         {
-          id: "circ_pt",
-          label: "Circumference — Patellar Tendon",
+          id: "circ_3above_liner_t2",
+          label: "3\" Proximal to PT — Trial 2",
           type: "number",
           min: 0,
           unit: "mm",
@@ -469,8 +508,17 @@ const FORM_CONFIG = {
           placeholder: "0.0"
         },
         {
-          id: "circ_1in",
-          label: "Circumference — 1\" Distal to PT",
+          id: "circ_3above_liner_avg",
+          label: "3\" Proximal to PT — Average",
+          type: "computed",
+          formula: "(circ_3above_liner_t1 + circ_3above_liner_t2) / 2",
+          decimals: 1,
+          unit: "mm",
+          unitGroup: "circumference"
+        },
+        {
+          id: "circ_pt_liner_t1",
+          label: "Patellar Tendon — Trial 1",
           type: "number",
           min: 0,
           unit: "mm",
@@ -478,8 +526,8 @@ const FORM_CONFIG = {
           placeholder: "0.0"
         },
         {
-          id: "circ_2in",
-          label: "Circumference — 2\" Distal to PT",
+          id: "circ_pt_liner_t2",
+          label: "Patellar Tendon — Trial 2",
           type: "number",
           min: 0,
           unit: "mm",
@@ -487,8 +535,17 @@ const FORM_CONFIG = {
           placeholder: "0.0"
         },
         {
-          id: "circ_3in",
-          label: "Circumference — 3\" Distal to PT",
+          id: "circ_pt_liner_avg",
+          label: "Patellar Tendon — Average",
+          type: "computed",
+          formula: "(circ_pt_liner_t1 + circ_pt_liner_t2) / 2",
+          decimals: 1,
+          unit: "mm",
+          unitGroup: "circumference"
+        },
+        {
+          id: "circ_1in_liner_t1",
+          label: "1\" Distal to PT — Trial 1",
           type: "number",
           min: 0,
           unit: "mm",
@@ -496,8 +553,8 @@ const FORM_CONFIG = {
           placeholder: "0.0"
         },
         {
-          id: "circ_4in",
-          label: "Circumference — 4\" Distal to PT",
+          id: "circ_1in_liner_t2",
+          label: "1\" Distal to PT — Trial 2",
           type: "number",
           min: 0,
           unit: "mm",
@@ -505,8 +562,17 @@ const FORM_CONFIG = {
           placeholder: "0.0"
         },
         {
-          id: "circ_5in",
-          label: "Circumference — 5\" Distal to PT",
+          id: "circ_1in_liner_avg",
+          label: "1\" Distal to PT — Average",
+          type: "computed",
+          formula: "(circ_1in_liner_t1 + circ_1in_liner_t2) / 2",
+          decimals: 1,
+          unit: "mm",
+          unitGroup: "circumference"
+        },
+        {
+          id: "circ_2in_liner_t1",
+          label: "2\" Distal to PT — Trial 1",
           type: "number",
           min: 0,
           unit: "mm",
@@ -514,8 +580,8 @@ const FORM_CONFIG = {
           placeholder: "0.0"
         },
         {
-          id: "circ_6in",
-          label: "Circumference — 6\" Distal to PT",
+          id: "circ_2in_liner_t2",
+          label: "2\" Distal to PT — Trial 2",
           type: "number",
           min: 0,
           unit: "mm",
@@ -523,8 +589,17 @@ const FORM_CONFIG = {
           placeholder: "0.0"
         },
         {
-          id: "circ_7in",
-          label: "Circumference — 7\" Distal to PT",
+          id: "circ_2in_liner_avg",
+          label: "2\" Distal to PT — Average",
+          type: "computed",
+          formula: "(circ_2in_liner_t1 + circ_2in_liner_t2) / 2",
+          decimals: 1,
+          unit: "mm",
+          unitGroup: "circumference"
+        },
+        {
+          id: "circ_3in_liner_t1",
+          label: "3\" Distal to PT — Trial 1",
           type: "number",
           min: 0,
           unit: "mm",
@@ -532,8 +607,8 @@ const FORM_CONFIG = {
           placeholder: "0.0"
         },
         {
-          id: "circ_8in",
-          label: "Circumference — 8\" Distal to PT",
+          id: "circ_3in_liner_t2",
+          label: "3\" Distal to PT — Trial 2",
           type: "number",
           min: 0,
           unit: "mm",
@@ -541,8 +616,17 @@ const FORM_CONFIG = {
           placeholder: "0.0"
         },
         {
-          id: "circ_9in",
-          label: "Circumference — 9\" Distal to PT",
+          id: "circ_3in_liner_avg",
+          label: "3\" Distal to PT — Average",
+          type: "computed",
+          formula: "(circ_3in_liner_t1 + circ_3in_liner_t2) / 2",
+          decimals: 1,
+          unit: "mm",
+          unitGroup: "circumference"
+        },
+        {
+          id: "circ_4in_liner_t1",
+          label: "4\" Distal to PT — Trial 1",
           type: "number",
           min: 0,
           unit: "mm",
@@ -550,8 +634,8 @@ const FORM_CONFIG = {
           placeholder: "0.0"
         },
         {
-          id: "circ_10in",
-          label: "Circumference — 10\" Distal to PT",
+          id: "circ_4in_liner_t2",
+          label: "4\" Distal to PT — Trial 2",
           type: "number",
           min: 0,
           unit: "mm",
@@ -559,8 +643,17 @@ const FORM_CONFIG = {
           placeholder: "0.0"
         },
         {
-          id: "circ_11in",
-          label: "Circumference — 11\" Distal to PT",
+          id: "circ_4in_liner_avg",
+          label: "4\" Distal to PT — Average",
+          type: "computed",
+          formula: "(circ_4in_liner_t1 + circ_4in_liner_t2) / 2",
+          decimals: 1,
+          unit: "mm",
+          unitGroup: "circumference"
+        },
+        {
+          id: "circ_5in_liner_t1",
+          label: "5\" Distal to PT — Trial 1",
           type: "number",
           min: 0,
           unit: "mm",
@@ -568,13 +661,211 @@ const FORM_CONFIG = {
           placeholder: "0.0"
         },
         {
-          id: "circ_12in",
-          label: "Circumference — 12\" Distal to PT",
+          id: "circ_5in_liner_t2",
+          label: "5\" Distal to PT — Trial 2",
           type: "number",
           min: 0,
           unit: "mm",
           unitGroup: "circumference",
           placeholder: "0.0"
+        },
+        {
+          id: "circ_5in_liner_avg",
+          label: "5\" Distal to PT — Average",
+          type: "computed",
+          formula: "(circ_5in_liner_t1 + circ_5in_liner_t2) / 2",
+          decimals: 1,
+          unit: "mm",
+          unitGroup: "circumference"
+        },
+        {
+          id: "circ_6in_liner_t1",
+          label: "6\" Distal to PT — Trial 1",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_6in_liner_t2",
+          label: "6\" Distal to PT — Trial 2",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_6in_liner_avg",
+          label: "6\" Distal to PT — Average",
+          type: "computed",
+          formula: "(circ_6in_liner_t1 + circ_6in_liner_t2) / 2",
+          decimals: 1,
+          unit: "mm",
+          unitGroup: "circumference"
+        },
+        {
+          id: "circ_7in_liner_t1",
+          label: "7\" Distal to PT — Trial 1",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_7in_liner_t2",
+          label: "7\" Distal to PT — Trial 2",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_7in_liner_avg",
+          label: "7\" Distal to PT — Average",
+          type: "computed",
+          formula: "(circ_7in_liner_t1 + circ_7in_liner_t2) / 2",
+          decimals: 1,
+          unit: "mm",
+          unitGroup: "circumference"
+        },
+        {
+          id: "circ_8in_liner_t1",
+          label: "8\" Distal to PT — Trial 1",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_8in_liner_t2",
+          label: "8\" Distal to PT — Trial 2",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_8in_liner_avg",
+          label: "8\" Distal to PT — Average",
+          type: "computed",
+          formula: "(circ_8in_liner_t1 + circ_8in_liner_t2) / 2",
+          decimals: 1,
+          unit: "mm",
+          unitGroup: "circumference"
+        },
+        {
+          id: "circ_9in_liner_t1",
+          label: "9\" Distal to PT — Trial 1",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_9in_liner_t2",
+          label: "9\" Distal to PT — Trial 2",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_9in_liner_avg",
+          label: "9\" Distal to PT — Average",
+          type: "computed",
+          formula: "(circ_9in_liner_t1 + circ_9in_liner_t2) / 2",
+          decimals: 1,
+          unit: "mm",
+          unitGroup: "circumference"
+        },
+        {
+          id: "circ_10in_liner_t1",
+          label: "10\" Distal to PT — Trial 1",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_10in_liner_t2",
+          label: "10\" Distal to PT — Trial 2",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_10in_liner_avg",
+          label: "10\" Distal to PT — Average",
+          type: "computed",
+          formula: "(circ_10in_liner_t1 + circ_10in_liner_t2) / 2",
+          decimals: 1,
+          unit: "mm",
+          unitGroup: "circumference"
+        },
+        {
+          id: "circ_11in_liner_t1",
+          label: "11\" Distal to PT — Trial 1",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_11in_liner_t2",
+          label: "11\" Distal to PT — Trial 2",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_11in_liner_avg",
+          label: "11\" Distal to PT — Average",
+          type: "computed",
+          formula: "(circ_11in_liner_t1 + circ_11in_liner_t2) / 2",
+          decimals: 1,
+          unit: "mm",
+          unitGroup: "circumference"
+        },
+        {
+          id: "circ_12in_liner_t1",
+          label: "12\" Distal to PT — Trial 1",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_12in_liner_t2",
+          label: "12\" Distal to PT — Trial 2",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_12in_liner_avg",
+          label: "12\" Distal to PT — Average",
+          type: "computed",
+          formula: "(circ_12in_liner_t1 + circ_12in_liner_t2) / 2",
+          decimals: 1,
+          unit: "mm",
+          unitGroup: "circumference"
         },
 
         // ── Scan 1 ────────────────────────────────────────────
@@ -599,6 +890,392 @@ const FORM_CONFIG = {
           type: "checkbox",
           fullWidth: true,
           options: ["Confirmed — exported as [ID]_Scan1_OverLiner"]
+        },
+
+        // ── Circumference stations — Without Liner ────────────
+        {
+          id: "info_circ_bare",
+          type: "info",
+          title: "Circumference Measurements — Without Liner",
+          content: "Participant removes gel liner. Record circumferences at the same stations before proceeding to Scan 2."
+        },
+        {
+          id: "circ_3above_bare_t1",
+          label: "3\" Proximal to PT — Trial 1",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_3above_bare_t2",
+          label: "3\" Proximal to PT — Trial 2",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_3above_bare_avg",
+          label: "3\" Proximal to PT — Average",
+          type: "computed",
+          formula: "(circ_3above_bare_t1 + circ_3above_bare_t2) / 2",
+          decimals: 1,
+          unit: "mm",
+          unitGroup: "circumference"
+        },
+        {
+          id: "circ_pt_bare_t1",
+          label: "Patellar Tendon — Trial 1",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_pt_bare_t2",
+          label: "Patellar Tendon — Trial 2",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_pt_bare_avg",
+          label: "Patellar Tendon — Average",
+          type: "computed",
+          formula: "(circ_pt_bare_t1 + circ_pt_bare_t2) / 2",
+          decimals: 1,
+          unit: "mm",
+          unitGroup: "circumference"
+        },
+        {
+          id: "circ_1in_bare_t1",
+          label: "1\" Distal to PT — Trial 1",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_1in_bare_t2",
+          label: "1\" Distal to PT — Trial 2",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_1in_bare_avg",
+          label: "1\" Distal to PT — Average",
+          type: "computed",
+          formula: "(circ_1in_bare_t1 + circ_1in_bare_t2) / 2",
+          decimals: 1,
+          unit: "mm",
+          unitGroup: "circumference"
+        },
+        {
+          id: "circ_2in_bare_t1",
+          label: "2\" Distal to PT — Trial 1",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_2in_bare_t2",
+          label: "2\" Distal to PT — Trial 2",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_2in_bare_avg",
+          label: "2\" Distal to PT — Average",
+          type: "computed",
+          formula: "(circ_2in_bare_t1 + circ_2in_bare_t2) / 2",
+          decimals: 1,
+          unit: "mm",
+          unitGroup: "circumference"
+        },
+        {
+          id: "circ_3in_bare_t1",
+          label: "3\" Distal to PT — Trial 1",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_3in_bare_t2",
+          label: "3\" Distal to PT — Trial 2",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_3in_bare_avg",
+          label: "3\" Distal to PT — Average",
+          type: "computed",
+          formula: "(circ_3in_bare_t1 + circ_3in_bare_t2) / 2",
+          decimals: 1,
+          unit: "mm",
+          unitGroup: "circumference"
+        },
+        {
+          id: "circ_4in_bare_t1",
+          label: "4\" Distal to PT — Trial 1",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_4in_bare_t2",
+          label: "4\" Distal to PT — Trial 2",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_4in_bare_avg",
+          label: "4\" Distal to PT — Average",
+          type: "computed",
+          formula: "(circ_4in_bare_t1 + circ_4in_bare_t2) / 2",
+          decimals: 1,
+          unit: "mm",
+          unitGroup: "circumference"
+        },
+        {
+          id: "circ_5in_bare_t1",
+          label: "5\" Distal to PT — Trial 1",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_5in_bare_t2",
+          label: "5\" Distal to PT — Trial 2",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_5in_bare_avg",
+          label: "5\" Distal to PT — Average",
+          type: "computed",
+          formula: "(circ_5in_bare_t1 + circ_5in_bare_t2) / 2",
+          decimals: 1,
+          unit: "mm",
+          unitGroup: "circumference"
+        },
+        {
+          id: "circ_6in_bare_t1",
+          label: "6\" Distal to PT — Trial 1",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_6in_bare_t2",
+          label: "6\" Distal to PT — Trial 2",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_6in_bare_avg",
+          label: "6\" Distal to PT — Average",
+          type: "computed",
+          formula: "(circ_6in_bare_t1 + circ_6in_bare_t2) / 2",
+          decimals: 1,
+          unit: "mm",
+          unitGroup: "circumference"
+        },
+        {
+          id: "circ_7in_bare_t1",
+          label: "7\" Distal to PT — Trial 1",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_7in_bare_t2",
+          label: "7\" Distal to PT — Trial 2",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_7in_bare_avg",
+          label: "7\" Distal to PT — Average",
+          type: "computed",
+          formula: "(circ_7in_bare_t1 + circ_7in_bare_t2) / 2",
+          decimals: 1,
+          unit: "mm",
+          unitGroup: "circumference"
+        },
+        {
+          id: "circ_8in_bare_t1",
+          label: "8\" Distal to PT — Trial 1",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_8in_bare_t2",
+          label: "8\" Distal to PT — Trial 2",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_8in_bare_avg",
+          label: "8\" Distal to PT — Average",
+          type: "computed",
+          formula: "(circ_8in_bare_t1 + circ_8in_bare_t2) / 2",
+          decimals: 1,
+          unit: "mm",
+          unitGroup: "circumference"
+        },
+        {
+          id: "circ_9in_bare_t1",
+          label: "9\" Distal to PT — Trial 1",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_9in_bare_t2",
+          label: "9\" Distal to PT — Trial 2",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_9in_bare_avg",
+          label: "9\" Distal to PT — Average",
+          type: "computed",
+          formula: "(circ_9in_bare_t1 + circ_9in_bare_t2) / 2",
+          decimals: 1,
+          unit: "mm",
+          unitGroup: "circumference"
+        },
+        {
+          id: "circ_10in_bare_t1",
+          label: "10\" Distal to PT — Trial 1",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_10in_bare_t2",
+          label: "10\" Distal to PT — Trial 2",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_10in_bare_avg",
+          label: "10\" Distal to PT — Average",
+          type: "computed",
+          formula: "(circ_10in_bare_t1 + circ_10in_bare_t2) / 2",
+          decimals: 1,
+          unit: "mm",
+          unitGroup: "circumference"
+        },
+        {
+          id: "circ_11in_bare_t1",
+          label: "11\" Distal to PT — Trial 1",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_11in_bare_t2",
+          label: "11\" Distal to PT — Trial 2",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_11in_bare_avg",
+          label: "11\" Distal to PT — Average",
+          type: "computed",
+          formula: "(circ_11in_bare_t1 + circ_11in_bare_t2) / 2",
+          decimals: 1,
+          unit: "mm",
+          unitGroup: "circumference"
+        },
+        {
+          id: "circ_12in_bare_t1",
+          label: "12\" Distal to PT — Trial 1",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_12in_bare_t2",
+          label: "12\" Distal to PT — Trial 2",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
+          id: "circ_12in_bare_avg",
+          label: "12\" Distal to PT — Average",
+          type: "computed",
+          formula: "(circ_12in_bare_t1 + circ_12in_bare_t2) / 2",
+          decimals: 1,
+          unit: "mm",
+          unitGroup: "circumference"
         },
 
         // ── Scan 2 ────────────────────────────────────────────

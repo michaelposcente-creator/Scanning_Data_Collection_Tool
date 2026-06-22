@@ -135,6 +135,8 @@ const FormEngine = (() => {
           if (!checked) return;
           document.querySelectorAll(`[data-unit-group="${field.controlsUnitGroup}"] .unit-label`)
             .forEach(span => { span.textContent = checked.value; });
+          document.querySelectorAll(`[data-unit-group="${field.controlsUnitGroup}"] .computed-unit`)
+            .forEach(span => { span.textContent = " " + checked.value; });
           _saveValue(field);
         });
       }
