@@ -451,6 +451,15 @@ const FORM_CONFIG = {
 
         // ── Circumference stations ────────────────────────────
         {
+          id: "circ_3in_above_pt",
+          label: "Circumference — 3\" Proximal to PT",
+          type: "number",
+          min: 0,
+          unit: "mm",
+          unitGroup: "circumference",
+          placeholder: "0.0"
+        },
+        {
           id: "circ_pt",
           label: "Circumference — Patellar Tendon",
           type: "number",
